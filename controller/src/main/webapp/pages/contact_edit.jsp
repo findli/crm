@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -6,7 +7,7 @@
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <link rel="stylesheet" href="../css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="../css/bootstrap-datetimepicker.min.css"/>
     <link rel="stylesheet" href="../style/reset.css">
     <link rel="stylesheet" href="../style/style.css">
 
@@ -56,30 +57,35 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">First Name </label>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" value="${contact.getfName()}" id="contactfName" name="contactfName">
+                                <input class="form-control" type="text" value="${contact.getfName()}" id="contactfName"
+                                       name="contactfName">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Last Name </label>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" value="${contact.getlName()}" id="contactlName" name="contactlName">
+                                <input class="form-control" type="text" value="${contact.getlName()}" id="contactlName"
+                                       name="contactlName">
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">Tag </label>
-                            <div class="col-sm-9">
-                                <input class="form-control" type="text" value="${contact.tag}" id="contactTag" name="contactTag">
-                            </div>
-                        </div>
+                        <%--
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Tag </label>
+                                                    <div class="col-sm-9">
+                                                        <input class="form-control" type="text" value="${contact.tag}" id="contactTag" name="contactTag">
+                                                    </div>
+                                                </div>
+                        --%>
 
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Responsible </label>
                             <select class="col-sm-9 form-control" id="newUser" name="newUser">
-                                <option>${responsibleUser}</option>
                                 <c:forEach var="user" items="${users}">
-                                    <option><c:out value="${user.lName}"/></option>
+                                    <option <c:choose>
+                                        <c:when test="${user.id eq responsibleUserId}">selected="selected"</c:when>
+                                        </c:choose> ><c:out value="${user.lName}"/></option>
                                 </c:forEach>
                             </select>
                         </div>
@@ -87,7 +93,8 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Position </label>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" value="${contact.position}" id="contactPosition" name="contactPosition">
+                                <input class="form-control" type="text" value="${contact.position}" id="contactPosition"
+                                       name="contactPosition">
                             </div>
                         </div>
 
@@ -106,14 +113,16 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Email </label>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" value="${contact.email}" id="email" name="email">
+                                <input class="form-control" type="text" value="${contact.email}" id="email"
+                                       name="email">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Skype </label>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" value="${contact.skype}" id="skype" name="skype">
+                                <input class="form-control" type="text" value="${contact.skype}" id="skype"
+                                       name="skype">
                             </div>
                         </div>
 
@@ -132,7 +141,8 @@
                         <!-- <div role="tabpanel" class="tab-pane active" id="contact1"> -->
                         <!-- Навигация -->
                         <ul class="nav nav-tabs" role="tablist">
-                            <li class="active"><a href="#old" aria-controls="old" role="tab" data-toggle="tab">Old company</a></li>
+                            <li class="active"><a href="#old" aria-controls="old" role="tab" data-toggle="tab">Old
+                                company</a></li>
                             <li><a href="#new" aria-controls="new" role="tab" data-toggle="tab">New company</a></li>
                         </ul>
 
@@ -150,7 +160,8 @@
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">Name </label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" placeholder="Name company" id="nameCompany">
+                                        <input class="form-control" type="text" placeholder="Name company"
+                                               id="nameCompany">
                                     </div>
                                 </div>
 
@@ -182,18 +193,18 @@
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">Address </label>
                                     <div class="col-sm-9">
-                                        <textarea class="form-control" placeholder="Address" name="editDealCompanyAddress"></textarea>
+                                        <textarea class="form-control" placeholder="Address"
+                                                  name="editDealCompanyAddress"></textarea>
                                     </div>
                                 </div>
 
-                         <!--       <div class="col-sm-10">
-                                    <button type="button" class="btn btn-success">Применить</button>
-                                    <button type="button" class="btn btn-danger">Отмена</button>
-                                </div> -->
+                                <!--       <div class="col-sm-10">
+                                           <button type="button" class="btn btn-success">Применить</button>
+                                           <button type="button" class="btn btn-danger">Отмена</button>
+                                       </div> -->
 
                             </div>
                         </div>
-
 
 
                     </div>
@@ -206,7 +217,8 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Name </label>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" value="${deal.getTitle()}" id="editDealContactName" name="editDealContactName">
+                                <input class="form-control" type="text" value="${deal.getTitle()}"
+                                       id="editDealContactName" name="editDealContactName">
                             </div>
                         </div>
 
@@ -223,7 +235,8 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Budget </label>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" value="${deal.budget}" id="editContactDealBudget" name="editContactDealBudget">
+                                <input class="form-control" type="text" value="${deal.budget}"
+                                       id="editContactDealBudget" name="editContactDealBudget">
                             </div>
                         </div>
 
@@ -235,7 +248,8 @@
 
                         <!-- Навигация -->
                         <ul class="nav nav-tabs" role="tablist">
-                            <li class="active"><a href="#task" aria-controls="task" role="tab" data-toggle="tab">Task</a></li>
+                            <li class="active"><a href="#task" aria-controls="task" role="tab"
+                                                  data-toggle="tab">Task</a></li>
                             <li><a href="#comment" aria-controls="comment" role="tab" data-toggle="tab">Comment</a></li>
                             <li><a href="#action" aria-controls="action" role="tab" data-toggle="tab">Action</a></li>
                             <li><a href="#file" aria-controls="file" role="tab" data-toggle="tab">File</a></li>
@@ -272,9 +286,9 @@
     </div>
 </div>
 <%--<script type="text/javascript">--%>
-    <%--$(function () {--%>
-        <%--$('#datetimepicker').datetimepicker({language: 'ru',minuteStepping:10,daysOfWeekDisabled:[0,6]});--%>
-    <%--});--%>
+<%--$(function () {--%>
+<%--$('#datetimepicker').datetimepicker({language: 'ru',minuteStepping:10,daysOfWeekDisabled:[0,6]});--%>
+<%--});--%>
 <%--</script>--%>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

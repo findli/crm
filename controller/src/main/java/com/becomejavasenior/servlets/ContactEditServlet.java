@@ -105,22 +105,21 @@ public class ContactEditServlet extends HttpServlet {
         } catch (DaoException e){
 
         }
-
         String stageTitle = deal.getStage().getTitle();
         session.setAttribute("stageTitle", stageTitle);
 
         stages.remove(stage.getId()-1);
 
-        String responsibleUser = deal.getResponsibleUser().getlName();
-        users.remove(deal.getResponsibleUser().getId()-1);
+        //        users.remove(deal.getResponsibleUser().getId()-1);
 
         session.setAttribute("contact", contact);
         session.setAttribute("idContact", idContact);
         session.setAttribute("deal", deal);
         session.setAttribute("stages", stages);
         session.setAttribute("stage", stage);
-        session.setAttribute("responsibleUser", responsibleUser);
-        session.setAttribute("user", users);
+        session.setAttribute("responsibleUser", deal.getResponsibleUser().getlName());
+        session.setAttribute("responsibleUserId", deal.getResponsibleUser().getId());
+        session.setAttribute("users", users);
         session.setAttribute("company", company);
 
         request.getRequestDispatcher("/pages/contact_edit.jsp").forward(request, response);

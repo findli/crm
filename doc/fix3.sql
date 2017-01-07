@@ -1,0 +1,1 @@
+ALTER TABLE crm_pallas."deal" RENAME date_create TO created;

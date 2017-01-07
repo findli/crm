@@ -32,7 +32,4 @@ public class UserCheckFilter implements javax.servlet.Filter {
     public void init(FilterConfig filterConfig) throws ServletException {
         LOGIN_ACTION_URI = filterConfig.getInitParameter("loginActionURI");
     }
-
 }
-
-

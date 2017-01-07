@@ -42,7 +42,8 @@
         <servlet-name>userValidator</servlet-name>
         <url-pattern>/user-validator</url-pattern>
     </servlet-mapping>-->
-    <filter>
+    <!--comment to disable auth begin-->
+    <!--<filter>
         <filter-name>UserCheckFilter</filter-name>
         <filter-class>com.becomejavasenior.filters.UserCheckFilter</filter-class>
         <init-param>
@@ -53,7 +54,8 @@
     <filter-mapping>
         <filter-name>UserCheckFilter</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping>
+    </filter-mapping>-->
+    <!--comment to disable auth begin end-->
 
 <!--
     <error-page>

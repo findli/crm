@@ -3,7 +3,7 @@ package com.becomejavasenior.service.impl;
 import com.becomejavasenior.DAO.*;
 import com.becomejavasenior.bean.*;
 import com.becomejavasenior.service.ContactService;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ import java.util.List;
 @Service(value = "contactService")
 public class ContactServiceImpl implements ContactService {
 
-    public static Logger log = Logger.getLogger(CompanyServiceImpl.class);
+    public static Logger log = LogManager.getLogger(CompanyServiceImpl.class);
 
     private final ContactDao<Contact> contactDao;
     private final UserDao<User> userDao;
@@ -41,6 +41,7 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public List<Contact> getAll() throws DaoException, ClassNotFoundException {
+        log.trace("get contactList in ContactAddServlet");
         return contactDao.getAll();
     }
 

@@ -5,7 +5,7 @@ import com.becomejavasenior.DAO.DaoException;
 import com.becomejavasenior.DAO.Imp.AddressDaoImpl;
 import com.becomejavasenior.bean.Address;
 import com.becomejavasenior.service.AddressService;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +14,7 @@ import java.util.List;
 /*@Service(value = "addressService")*/
 public class AddressServiceImpl implements AddressService {
 
-    public static Logger log = Logger.getLogger(AddressServiceImpl.class);
+    public static Logger log = LogManager.getLogger(AddressServiceImpl.class);
 
     private AddressDao addressDao;
 

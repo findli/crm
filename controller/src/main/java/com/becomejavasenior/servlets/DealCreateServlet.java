@@ -3,7 +3,7 @@ package com.becomejavasenior.servlets;
 import com.becomejavasenior.DAO.DaoException;
 import com.becomejavasenior.bean.*;
 import com.becomejavasenior.service.*;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -29,7 +29,7 @@ import java.util.List;
 @Controller("dealCreateServlet")
 public class DealCreateServlet extends HttpServlet {
 
-    public static Logger log = Logger.getLogger(DealCreateServlet.class);
+    public static Logger log = LogManager.getLogger(DealCreateServlet.class);
     String str = null;
     Company company;
     Address address;

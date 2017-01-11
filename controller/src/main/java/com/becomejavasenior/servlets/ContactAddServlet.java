@@ -3,12 +3,14 @@ package com.becomejavasenior.servlets;
 import com.becomejavasenior.DAO.DaoException;
 import com.becomejavasenior.bean.*;
 import com.becomejavasenior.service.*;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,7 +28,7 @@ import java.util.List;
 @Controller("ContactAddServlet")
 public class ContactAddServlet extends HttpServlet {
 
-    public static Logger log = Logger.getLogger(ContactAddServlet.class);
+    public static Logger log = LogManager.getLogger(ContactAddServlet.class);
     @Autowired
     @Qualifier("companyService")
     CompanyService companyService;
@@ -57,23 +59,22 @@ public class ContactAddServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        RequestDispatcher rd;
         HttpSession session = request.getSession();
 
-        List<User> usersList = null;
-        List<TaskType> TaskTypeList = null;
-        List<PeriodInDaysType> PeriodInDaysTypeList = null;
-        List<Contact> contactList = null;
-        List<Company> companyList = null;
-        List<PhoneType> phoneTypes = null;
-        List<Stage> stageList = null;
-        //TODO:  List<Phone> phoneList = null;
 
         try {
+            List<User> usersList = null;
+            List<TaskType> TaskTypeList = null;
+            List<PeriodInDaysType> PeriodInDaysTypeList = null;
+            List<Contact> contactList = null;
+            List<Company> companyList = null;
+            List<PhoneType> phoneTypes = null;
+            List<Stage> stageList = null;
+            //TODO:  List<Phone> phoneList = null;
+
             usersList = userService.getAll();
-            log.trace("get usersList in ContactAddServlet");
             contactList = contactService.getAll();
-            log.trace("get contactList in ContactAddServlet");
             companyList = companyService.getAll();
             log.trace("get companyList in ContactAddServlet");
             TaskTypeList = taskTypeService.getAll();
@@ -84,23 +85,33 @@ public class ContactAddServlet extends HttpServlet {
             log.trace("get PhoneTypeList in ContactAddServlet");
             stageList = stageService.getAll();
             log.trace("get StageList in ContactAddServlet");
+
+            setSessionVariables(session, usersList, TaskTypeList, PeriodInDaysTypeList, contactList, companyList, phoneTypes, stageList);
+
+            request.getRequestDispatcher("/pages/contact_add.jsp").forward(request, response);
         } catch (DaoException e) {
             log.warn("DaoException in ContactAddServlet");
             e.printStackTrace();
+
+            request.getRequestDispatcher("/pages/serverError.jsp").forward(request, response);
         } catch (ClassNotFoundException e) {
             log.warn("ClassNotFoundException in ContactAddServlet");
             e.printStackTrace();
+
+            request.getRequestDispatcher("/pages/serverError.jsp").forward(request, response);
         }
 
+
+    }
+
+    private void setSessionVariables(HttpSession session, List<User> usersList, List<TaskType> taskTypeList, List<PeriodInDaysType> periodInDaysTypeList, List<Contact> contactList, List<Company> companyList, List<PhoneType> phoneTypes, List<Stage> stageList) {
         session.setAttribute("usersList", usersList);
-        session.setAttribute("TaskTypeList", TaskTypeList);
-        session.setAttribute("PeriodInDaysTypeList", PeriodInDaysTypeList);
+        session.setAttribute("TaskTypeList", taskTypeList);
+        session.setAttribute("PeriodInDaysTypeList", periodInDaysTypeList);
         session.setAttribute("contactList", contactList);
         session.setAttribute("companyList", companyList);
         session.setAttribute("phoneTypes", phoneTypes);
         session.setAttribute("stageList", stageList);
-        request.getRequestDispatcher("/pages/contact_add.jsp").forward(request, response);
-
     }
 
     @Override

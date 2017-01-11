@@ -6,7 +6,7 @@ import com.becomejavasenior.DAO.AddressDao;
 import com.becomejavasenior.bean.Address;
 import com.becomejavasenior.bean.Company;
 import com.becomejavasenior.service.CompanyService;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +15,7 @@ import java.util.List;
 
 public class CompanyServiceImpl implements CompanyService {
 
-    public static Logger log = Logger.getLogger(CompanyServiceImpl.class);
+    public static Logger log = LogManager.getLogger(CompanyServiceImpl.class);
 
     private CompanyDao companyDao;
     private AddressDao addressDao;

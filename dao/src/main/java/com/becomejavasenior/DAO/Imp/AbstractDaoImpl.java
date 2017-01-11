@@ -2,13 +2,11 @@ package com.becomejavasenior.DAO.Imp;
 
 
 import com.becomejavasenior.DAO.AbstractDao;
-
 import com.becomejavasenior.DAO.DaoException;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
 import java.sql.*;
@@ -18,7 +16,7 @@ import java.util.List;
 @Repository
 public abstract class AbstractDaoImpl<T> implements AbstractDao<T> {
 
-    public static Logger log = Logger.getLogger(AbstractDaoImpl.class);
+    public static Logger log = LogManager.getLogger(AbstractDaoImpl.class);
 
     @Autowired
     private final DataSource dataSource;

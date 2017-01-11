@@ -1,4 +1,3 @@
-
 package com.becomejavasenior.servlets;
 
 import com.becomejavasenior.DAO.DaoException;
@@ -6,6 +5,8 @@ import com.becomejavasenior.bean.Contact;
 import com.becomejavasenior.bean.User;
 import com.becomejavasenior.service.ContactService;
 import com.becomejavasenior.service.UserService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -24,14 +25,13 @@ import java.util.List;
 @WebServlet(name = "contactListServlet", urlPatterns = "/contact")
 @Controller("contactListServlet")
 public class ContactListServlet extends HttpServlet {
-
     @Autowired
     @Qualifier("contactService")
     ContactService contactService;
-
     @Autowired
     @Qualifier("userService")
     UserService userService;
+    private Logger logger = LogManager.getLogger(ContactListServlet.class);
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -46,8 +46,19 @@ public class ContactListServlet extends HttpServlet {
         List<Contact> contactList = null;
         List<User> users = null;
 
+        logger.debug("This is a debug message");
+        logger.info("This is an info message");
+        logger.warn("This is a warn message");
+        logger.error("This is an error message");
+        String s = "This is a fatal message";
+        logger.fatal(s);
+        System.out.println(s);
         try {
             contactList = contactService.getAll();
+            logger.trace(contactList);
+            for (Contact contact : contactList) {
+
+            }
             users = userService.getAll();
         } catch (DaoException e) {
             e.printStackTrace();
@@ -58,8 +69,7 @@ public class ContactListServlet extends HttpServlet {
         session.setAttribute("users", users);
         session.setAttribute("contactList", contactList);
 
-        response.sendRedirect("/pages/contact.jsp");
-
+        request.getRequestDispatcher("/pages/contact.jsp").forward(request, response);
     }
 
 }

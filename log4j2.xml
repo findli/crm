@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO" strict="true" monitorinterval="30">
+    <Properties>
+        <Property name="fileName">log/trace-level.log</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <!--<File name="File" type="File" fileName="${fileName}" immediateFlush="true" append="false">-->
+        <File name="File" type="File" fileName="log/trace-level.log" immediateFlush="true" append="false">
+            <!--<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>-->
+            <Layout type="PatternLayout" pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="File"/>
+            <AppenderRef ref="Console"/>
+        </Root>
+        <!--<Logger name="Console-ALL" level="ALL">-->
+        <!--</Logger>-->
+    </Loggers>
+</Configuration>

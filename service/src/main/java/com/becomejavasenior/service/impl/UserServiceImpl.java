@@ -4,6 +4,7 @@ import com.becomejavasenior.DAO.DaoException;
 import com.becomejavasenior.DAO.UserDao;
 import com.becomejavasenior.bean.User;
 import com.becomejavasenior.service.UserService;
+import org.apache.logging.log4j.Logger;import org.apache.logging.log4j.LogManager;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Service(value = "userService")
 public class UserServiceImpl implements UserService {
+    public static Logger log = LogManager.getLogger(UserServiceImpl.class);
 
     private final UserDao<User> userDao;
 
@@ -30,6 +32,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getAll() throws DaoException, ClassNotFoundException {
+        log.trace("UserServiceImpl::usersList");
         return userDao.getAll();
     }
 

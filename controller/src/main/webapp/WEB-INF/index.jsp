@@ -1,16 +1,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page isELIgnored="false" %>
+<c:url value="/" var="homeUrl"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../style/bootstrap.css">
-    <link rel="stylesheet" href="../style/reset.css">
-    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="${homeUrl}style/bootstrap.css">
+    <link rel="stylesheet" href="${homeUrl}/style/reset.css">
+    <link rel="stylesheet" href="${homeUrl}style/style.css">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    
+
     <title>Home</title>
 </head>
 <body>
@@ -35,13 +36,19 @@
     <div class="wrapper">
         <div id="navbar">
             <ul>
-                <li><a href="/WEB-INF/index.jsp" target="_self">Home</a></li>
-                <li><a href="/deal" target="_self">Deals</a></li>
-                <li><a href="/company" target="_self">Company</a></li>
-                <li><a href="/contact" target="_self">Contacts</a></li>
-                <li><a href="/taskList" target="_self">Tasks</a></li>
+                <%--<li><a href="/WEB-INF/index.jsp" target="_self">Home</a></li>--%>
+                <li><a href="${homeUrl}" target="_self">Home</a></li>
+                <c:url value="/deal" var="dealUrl"/>
+                <li><a href="${dealUrl}" target="_self">Deals</a></li>
+                <c:url value="/company" var="companyUrl"/>
+                <li><a href="${companyUrl}" target="_self">Company</a></li>
+                <c:url value="/contact" var="contactUrl"/>
+                <li><a href="${contactUrl}" target="_self">Contacts</a></li>
+                <c:url value="/taskList" var="taskListUrl"/>
+                <li><a href="${taskListUrl}" target="_self">Tasks</a></li>
                 <li><a href="#" target="_self">Analitics</a></li>
-                <li><a href="/settings" target="_self">Settings</a></li>
+                <c:url value="/settings" var="settingsUrl"/>
+                <li><a href="${settingsUrl}" target="_self">Settings</a></li>
             </ul>
         </div>
         <div class="wrapper__aboutCompany">

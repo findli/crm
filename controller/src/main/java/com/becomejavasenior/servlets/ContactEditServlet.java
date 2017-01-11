@@ -25,7 +25,7 @@ import java.util.List;
 @Controller("contactEditServlet")
 public class ContactEditServlet extends HttpServlet {
 
-//    public static Logger log = Logger.getLogger(ContactEditServlet.class);
+//    public static Logger log = LogManager.getLogger(ContactEditServlet.class);
 
     @Autowired
     @Qualifier("contactService")

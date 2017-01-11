@@ -1,13 +1,14 @@
 package com.becomejavasenior.DAO;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.sql.SQLException;
 
 
 public class DaoException extends Exception {
 
-    public static Logger log = Logger.getLogger(DaoException.class);
+    public static Logger log = LogManager.getLogger(DaoException.class);
 
     public DaoException() {
 

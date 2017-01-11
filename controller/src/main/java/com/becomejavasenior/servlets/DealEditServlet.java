@@ -6,7 +6,7 @@ import com.becomejavasenior.bean.*;
 import com.becomejavasenior.service.*;
 import com.becomejavasenior.service.impl.StageServiceImpl;
 import com.becomejavasenior.service.impl.UserServiceImpl;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -28,7 +28,7 @@ import java.util.List;
 @Controller("dealEditServlet")
 public class DealEditServlet extends HttpServlet {
 
-    public static Logger log = Logger.getLogger(DealEditServlet.class);
+    public static Logger log = LogManager.getLogger(DealEditServlet.class);
     private ApplicationContext context;
 
     @Autowired

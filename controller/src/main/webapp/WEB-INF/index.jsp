@@ -37,6 +37,7 @@
         <div id="navbar">
             <ul>
                 <%--<li><a href="/WEB-INF/index.jsp" target="_self">Home</a></li>--%>
+                <%--${pageContext.request.contextPath}--%>
                 <li><a href="${homeUrl}" target="_self">Home</a></li>
                 <c:url value="/deal" var="dealUrl"/>
                 <li><a href="${dealUrl}" target="_self">Deals</a></li>

@@ -115,7 +115,7 @@ public class DealEditServlet extends HttpServlet {
             session.setAttribute("deal", deal);
         }
 
-        request.getRequestDispatcher("/pages/deal_edit.jsp").forward(request, response);
+        request.getRequestDispatcher("/view/deal_edit.jsp").forward(request, response);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/plain");

@@ -32,7 +32,7 @@ public class CompanyDetail {
         modelAndView.addObject("taskList", taskService.getTasksForList(idCompany));
         modelAndView.addObject("fileList", fileService.getFilesForList(idCompany));
         modelAndView.addObject("noteList", noteService.getNotesForList(idCompany));
-        modelAndView.setViewName("/pages/companyDetail");
+        modelAndView.setViewName("/view/companyDetail");
         return modelAndView;
     }
 

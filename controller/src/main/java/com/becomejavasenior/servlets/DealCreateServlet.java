@@ -95,7 +95,7 @@ public class DealCreateServlet extends HttpServlet {
         session.setAttribute("TaskTypeList", TaskTypeList);
         session.setAttribute("PeriodInDaysTypeList", PeriodInDaysTypeList);
         session.setAttribute("contactList", contactList);
-        request.getRequestDispatcher("/pages/deal_add.jsp").forward(request, response);
+        request.getRequestDispatcher("/view/deal_add.jsp").forward(request, response);
 
     }
 

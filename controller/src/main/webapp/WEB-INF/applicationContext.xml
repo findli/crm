@@ -12,8 +12,6 @@
     <context:component-scan base-package="com.becomejavasenior"/>
 
     <context:property-placeholder location="WEB-INF/${DEPLOYMENT_ENVIRONMENT:database}.properties"/>
-    <!--<context:property-placeholder location="WEB-INF/database.properties"/>-->
-    <!--<context:property-placeholder location="WEB-INF/database_heroku.properties"/>-->
 
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <constructor-arg ref="dataSource"/>
@@ -38,4 +36,14 @@
     <bean id="addressService" class="com.becomejavasenior.service.impl.AddressServiceImpl"/>
     <bean id="companyDao" class="com.becomejavasenior.DAO.Imp.CompanyDaoImpl"/>
     <bean id="addressDao" class="com.becomejavasenior.DAO.Imp.AddressDaoImpl"/>
+
+    <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+        <property name="definitions">
+            <list>
+                <value>/WEB-INF/defs/tiles.xml</value>
+            </list>
+        </property>
+        <property name="preparerFactoryClass"
+                  value="org.springframework.web.servlet.view.tiles3.SpringBeanPreparerFactory"/>
+    </bean>
 </beans>

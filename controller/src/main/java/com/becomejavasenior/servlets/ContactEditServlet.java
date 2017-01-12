@@ -122,7 +122,7 @@ public class ContactEditServlet extends HttpServlet {
         session.setAttribute("users", users);
         session.setAttribute("company", company);
 
-        request.getRequestDispatcher("/pages/contact_edit.jsp").forward(request, response);
+        request.getRequestDispatcher("/view/contact_edit.jsp").forward(request, response);
 
     }
 

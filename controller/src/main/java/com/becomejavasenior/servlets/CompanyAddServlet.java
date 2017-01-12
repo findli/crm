@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@WebServlet(name = "companyaddservlet", urlPatterns = "/companyadd")
+@WebServlet(name = "companyaddservlet", urlPatterns = "/crm-pallas/companyadd")
 @Controller("companyAddServlet")
 public class CompanyAddServlet extends HttpServlet {
 
@@ -50,7 +50,7 @@ public class CompanyAddServlet extends HttpServlet {
         }
 
         session.setAttribute("contactList", companyList);
-        request.getRequestDispatcher("/pages/company_add.jsp").forward(request, response);
+        request.getRequestDispatcher("/view/company_add.jsp").forward(request, response);
 
     }
 

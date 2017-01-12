@@ -74,7 +74,7 @@ public class SettingsServlet extends HttpServlet {
         session.setAttribute("TimeZoneList", timeZoneList);
         session.setAttribute("LanguageList", languageList);
         session.setAttribute("CurrencyList", crmCurrencyList);
-        request.getRequestDispatcher("/pages/settings.jsp").forward(request, response);
+        request.getRequestDispatcher("/view/settings.jsp").forward(request, response);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{

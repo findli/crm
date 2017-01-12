@@ -22,7 +22,7 @@ public class UserCheckFilter implements javax.servlet.Filter {
         User user = (User) session.getAttribute("user");
 
         if (user == null && !LOGIN_ACTION_URI.equals(requestLocal.getRequestURI())) {
-            RequestDispatcher requestDispatcher = requestLocal.getRequestDispatcher("/pages/login.jsp");
+            RequestDispatcher requestDispatcher = requestLocal.getRequestDispatcher("/view/login.jsp");
             requestDispatcher.forward(requestLocal, response);
             return;
         }

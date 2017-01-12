@@ -56,7 +56,7 @@ public class DealFunnelServlet extends HttpServlet {
 
         session.setAttribute("dealList", dealList);
 
-        response.sendRedirect("/pages/funnel.jsp");
+        response.sendRedirect("/view/funnel.jsp");
 
 
     }

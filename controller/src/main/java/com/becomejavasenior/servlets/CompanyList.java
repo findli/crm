@@ -20,7 +20,7 @@ public class CompanyList {
     @RequestMapping(value = "/company", method = RequestMethod.GET)
     public String getListCompany(Map<String, Object> company) throws ClassNotFoundException, DaoException {
         company.put("company", companyService.getAll());
-        return "/pages/company";
+        return "/view/company";
     }
 
     @Autowired

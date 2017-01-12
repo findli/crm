@@ -16,7 +16,7 @@ public class UserLogoutServlet extends HttpServlet {
         RequestDispatcher rd;
 
         logoutCurrentUser(request.getSession());
-        rd = request.getRequestDispatcher("/pages/logoutSuccess.jsp");
+        rd = request.getRequestDispatcher("/view/logoutSuccess.jsp");
 
         rd.forward(request, response);
     }

@@ -47,7 +47,7 @@ public class UserValidatorServlet extends HttpServlet {
         }
 
         if (!isAuthorised) {
-            rd = request.getRequestDispatcher("/pages/loginError.jsp");
+            rd = request.getRequestDispatcher("/view/loginError.jsp");
         } else {
             HttpSession session = request.getSession();
             try {
@@ -56,7 +56,7 @@ public class UserValidatorServlet extends HttpServlet {
                 e.printStackTrace();
                 throw new ServletException("Contact administrator.");
             }
-            rd = request.getRequestDispatcher("/pages/loginSuccess.jsp");
+            rd = request.getRequestDispatcher("/view/loginSuccess.jsp");
         }
 
         rd.forward(request, response);
@@ -64,7 +64,7 @@ public class UserValidatorServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher requestDispatcher;
-        requestDispatcher = request.getRequestDispatcher("/pages/login.jsp");
+        requestDispatcher = request.getRequestDispatcher("/view/login.jsp");
         requestDispatcher.forward(request, response);
     }
 }

@@ -88,17 +88,17 @@ public class ContactAddServlet extends HttpServlet {
 
             setSessionVariables(session, usersList, TaskTypeList, PeriodInDaysTypeList, contactList, companyList, phoneTypes, stageList);
 
-            request.getRequestDispatcher("/pages/contact_add.jsp").forward(request, response);
+            request.getRequestDispatcher("/view/contact_add.jsp").forward(request, response);
         } catch (DaoException e) {
             log.warn("DaoException in ContactAddServlet");
             e.printStackTrace();
 
-            request.getRequestDispatcher("/pages/serverError.jsp").forward(request, response);
+            request.getRequestDispatcher("/view/serverError.jsp").forward(request, response);
         } catch (ClassNotFoundException e) {
             log.warn("ClassNotFoundException in ContactAddServlet");
             e.printStackTrace();
 
-            request.getRequestDispatcher("/pages/serverError.jsp").forward(request, response);
+            request.getRequestDispatcher("/view/serverError.jsp").forward(request, response);
         }
 
 

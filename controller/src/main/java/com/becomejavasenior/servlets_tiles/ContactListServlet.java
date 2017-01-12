@@ -62,7 +62,7 @@ public class ContactListServlet {
         session.setAttribute("users", users);
         session.setAttribute("contactList", contactList);
 
-        return "app.homepage";
+        return "contact.list";
     }
 
 }

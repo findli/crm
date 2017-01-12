@@ -3,11 +3,36 @@
         "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
-    <definition name="app.homepage" template="/view/layout/main.jsp">
+    <definition name="app.base" template="/view/layout/main.jsp">
         <put-attribute name="title" value="Crm Pallas"/>
         <put-attribute name="header" type="template" value="/view/layout/tile/header.jsp"/>
         <put-attribute name="menu" type="template" value="/view/layout/tile/leftMenu.jsp"/>
-        <put-attribute name="body" type="template" value="/view/layout/tile/index.jsp"/>
+        <put-attribute name="body" type="template" value=""/>
         <put-attribute name="footer" type="template" value="/view/layout/tile/footer.jsp"/>
+    </definition>
+
+    <!-- Home Page -->
+    <definition name="app.home" extends="app.base">
+        <put-attribute name="title" value="Welcome to crm pallas!"/>
+        <put-attribute name="body" value="/view/layout/tile/index.jsp"/>
+    </definition>
+
+    <!-- Contact add Page -->
+    <definition name="contact.add" extends="app.base">
+        <put-attribute name="title" value="Add new contact"/>
+        <put-attribute name="body" value="/view/company_add.jsp"/>
+    </definition>
+
+    <!-- Contact edit Page -->
+    <definition name="contact.edit" extends="app.base">
+        <put-attribute name="title" value="Edit contact"/>
+        <put-attribute name="body" value="/view/contact_edit.jsp"/>
+    </definition>
+
+    <!-- List Contacts Page -->
+    <definition name="contact.list" extends="app.base">
+        <put-attribute name="title" value="Contact list"/>
+        <!--<put-attribute name="body" value="/view/contact.jsp"/>-->
+        <put-attribute name="body" value="/view/layout/tile/index.jsp"/>
     </definition>
 </tiles-definitions>

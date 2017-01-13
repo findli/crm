@@ -1,19 +1,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page isELIgnored="false" %>
-
+<c:url value="/" var="basePath"></c:url>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="${basePath}/css/bootstrap.css">
 
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <%--  <script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>--%>
-    <link rel="stylesheet" href="../css/bootstrap-datetimepicker.min.css"/>
-    <link rel="stylesheet" href="../style/reset.css">
-    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="${basePath}/css/bootstrap-datetimepicker.min.css"/>
+    <link rel="stylesheet" href="${basePath}/style/reset.css">
+    <link rel="stylesheet" href="${basePath}/style/style.css">
     <title>Add contact</title>
 </head>
 <body>
@@ -28,8 +27,8 @@
                 <div class="header__user--photo">
                     <i class="fa fa-user"></i>
                 </div>
-                <p id="user">User</p>
-                <a href="">Log out</a>
+                <p id="user">User todo name</p>
+                <a href="${basePath}log-out">Log out</a>
             </div>
         </div>
     </div>
@@ -49,7 +48,7 @@
         </div>
 
         <div class="wrapper__aboutCompany">
-            <form class="form-horizontal" role="form" method="post" action="/contactAdd">
+            <form class="form-horizontal" role="form" method="post" action="${basePath}/contactAdd">
                 <div class="forms">
 
                     <!--Add contact-->
@@ -197,28 +196,31 @@
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">Title: </label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" id="formCompanyTabpanel" type="text" placeholder="Name">
+                                        <input class="form-control" id="formCompanyTabpanel" type="text"
+                                               placeholder="Name">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">Phone: </label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" id="formPhoneTabpanel" type="text" placeholder="Phone">
+                                        <input class="form-control" id="formPhoneTabpanel" type="text"
+                                               placeholder="Phone">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">email: </label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" id="formEmailTabpanel" type="text" placeholder="email">
+                                        <input class="form-control" id="formEmailTabpanel" type="text"
+                                               placeholder="email">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">Web: </label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" id="formWebTabpanel" type="text"placeholder="Url">
+                                        <input class="form-control" id="formWebTabpanel" type="text" placeholder="Url">
                                     </div>
                                 </div>
 
@@ -226,7 +228,8 @@
                                     <label class="col-sm-3 control-label">Address: </label>
                                     <div class="col-sm-9" onclick="location.href='#modalAddAddress'"
                                          title="Click me for edit">
-                                        <textarea disabled="disabled" class="text" id='formAddress' type="text" name="formAddress"></textarea>
+                                        <textarea disabled="disabled" class="text" id='formAddress' type="text"
+                                                  name="formAddress"></textarea>
                                     </div>
                                 </div>
                                 <input class="formAddBut" type="button" value="Add company">
@@ -334,7 +337,8 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Title </label>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" placeholder="Name deal" name="dealName" id="dealName">
+                                <input class="form-control" type="text" placeholder="Name deal" name="dealName"
+                                       id="dealName">
                             </div>
                         </div>
 
@@ -350,7 +354,8 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Budget </label>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" placeholder="$" name="dealBudget" id="dealBudget">
+                                <input class="form-control" type="text" placeholder="$" name="dealBudget"
+                                       id="dealBudget">
                             </div>
                         </div>
 
@@ -372,14 +377,12 @@
         $('#datetimepicker').datetimepicker({language: 'ru', minuteStepping: 10, daysOfWeekDisabled: [0, 6]});
     });
 </script>
-
 </body>
 
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script type="text/javascript" src="../js/moment-with-locales.min.js"></script>
-<script type="text/javascript" src="../js/bootstrap.js"></script>
-<script type="text/javascript" src="../js/bootstrap-datetimepicker.min.js"></script>
-<script type="text/javascript" src="../js/script.js"></script>
-<script type="text/javascript" src="../js/scriptAddCompany.js"></script>
+<script type="text/javascript" src="${basePath}/js/moment-with-locales.min.js"></script>
+<script type="text/javascript" src="${basePath}/js/bootstrap.js"></script>
+<script type="text/javascript" src="${basePath}/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="${basePath}/js/script.js"></script>
+<script type="text/javascript" src="${basePath}/js/scriptAddCompany.js"></script>
 </html>

@@ -57,7 +57,7 @@
     </filter>
     <filter-mapping>
         <filter-name>UserCheckFilter</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/contactAdd</url-pattern>
     </filter-mapping>-->
     <!--comment to disable auth begin end-->
 

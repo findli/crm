@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet(name = "userValidatorServlet", urlPatterns = "/user-validator")
+@WebServlet(name = "userValidatorServlet")
 @Controller("userValidatorServlet")
 public class UserValidatorServlet extends HttpServlet {
 
@@ -58,7 +58,8 @@ public class UserValidatorServlet extends HttpServlet {
             }
             rd = request.getRequestDispatcher("/view/loginSuccess.jsp");
         }
-
+        // TODO: 1/12/2017 todo )
+//        session.setParameter("fastMessage", "You login successfully!");
         rd.forward(request, response);
     }
 

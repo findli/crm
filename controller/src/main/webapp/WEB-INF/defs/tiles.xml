@@ -4,7 +4,7 @@
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
     <definition name="app.base" template="/view/layout/main.jsp">
-        <put-attribute name="title" value="Crm Pallas"/>
+        <put-attribute name="pageTitle" value="Crm Pallas"/>
         <put-attribute name="header" type="template" value="/view/layout/tile/header.jsp"/>
         <put-attribute name="menu" type="template" value="/view/layout/tile/leftMenu.jsp"/>
         <put-attribute name="body" type="template" value=""/>
@@ -33,6 +33,6 @@
     <definition name="contact.list" extends="app.base">
         <put-attribute name="title" value="Contact list"/>
         <!--<put-attribute name="body" value="/view/contact.jsp"/>-->
-        <put-attribute name="body" value="/view/layout/tile/index.jsp"/>
+        <put-attribute name="body" value="/view/contact_list.jsp"/>
     </definition>
 </tiles-definitions>

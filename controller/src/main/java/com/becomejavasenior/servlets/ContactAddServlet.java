@@ -133,8 +133,7 @@ public class ContactAddServlet extends HttpServlet {
         }
 //        Tag tag = getTagFromRequest(request);
 //        File attachedFile = getFileFromRequest(request);
-
-        response.sendRedirect("/contact");
+        response.sendRedirect(request.getContextPath() + "/contact");
     }
 
     private Contact getContactFromRequest(HttpServletRequest request) throws DaoException, ClassNotFoundException {
